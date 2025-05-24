@@ -1,0 +1,14 @@
+{
+  "name": "whatsappjs",
+  "version": "1.0.0",
+  "description": "Script for whatsapp",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "phiexdric",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^24.8.2"
+  }
+}
