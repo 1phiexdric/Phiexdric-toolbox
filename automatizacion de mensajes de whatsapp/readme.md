@@ -32,7 +32,7 @@ El script abre WhatsApp Web en un navegador automatizado, espera a que escanees 
 
    ```sh
    node src/main.js
-```
+
 
 4. **Escanea el código QR:**  
    Cuando el script abra el navegador, escanea el código QR con tu teléfono desde WhatsApp para iniciar sesión.
