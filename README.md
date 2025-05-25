@@ -1,8 +1,8 @@
 # Phiexdric Toolbox
-Este repositorio agrupa pequeñas herramientas para automatización, convercion de archivos y más.
+Este repositorio agrupa pequeñas herramientas para automatización y otras cositas.
 
-## 📂 Estructuras de los repositorios.
+## 📂 Estructuras de las carpetas.
 Cada carpeta contiene:
-- El script.
+- una carpeta `src` dónde está el script.
 - Un requirements.txt si necesita dependencias externas.
 - (Opcional) Un README.md explicando cómo usar el script.
