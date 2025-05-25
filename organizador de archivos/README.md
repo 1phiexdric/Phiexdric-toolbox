@@ -65,5 +65,5 @@ Este script está diseñado para ser flexible y adaptable a tus necesidades espe
 
 ### 3. Retroalimentación y Registro (Logging)
 
-* **Registro de actividad:** Implementa un sistema de registro para crear un archivo (log) que guarde un historial detallado de cada ejecución del script. Este log podría incluir qué archivos se movieron, a qué destino, y si se encontraron errores durante el proceso. Esto es invaluable para depurar y verificar el funcionamiento.
+* **Registro de actividad:** Implementa un sistema de registro para crear un archivo (log) que guarde un historial detallado de cada ejecución del script. Este log podría incluir qué archivos se movieron, a qué destino, y si se encontraron errores durante el proceso.
 * **Notificaciones:** Configura el script para enviar notificaciones de escritorio (pop-ups) al finalizar la ejecución, resumiendo la organización realizada o alertando sobre cualquier problema. También podrías explorar opciones para enviar un resumen por correo electrónico.
