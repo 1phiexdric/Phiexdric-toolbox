@@ -63,7 +63,7 @@ Este script está diseñado para ser flexible y adaptable a tus necesidades espe
 * **Archivado por antigüedad:** Mueve automáticamente los archivos que no han sido modificados en un período de tiempo específico (ej. 6 meses, 1 año) a una carpeta de archivo (`Archivados/`) para mantener la carpeta principal más limpia.
 
 
-### 4. Retroalimentación y Registro (Logging)
+### 3. Retroalimentación y Registro (Logging)
 
 * **Registro de actividad:** Implementa un sistema de registro para crear un archivo (log) que guarde un historial detallado de cada ejecución del script. Este log podría incluir qué archivos se movieron, a qué destino, y si se encontraron errores durante el proceso. Esto es invaluable para depurar y verificar el funcionamiento.
 * **Notificaciones:** Configura el script para enviar notificaciones de escritorio (pop-ups) al finalizar la ejecución, resumiendo la organización realizada o alertando sobre cualquier problema. También podrías explorar opciones para enviar un resumen por correo electrónico.
