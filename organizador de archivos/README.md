@@ -1,28 +1,53 @@
 # Organizador de archivos con python
-Este script organiza automáticamente los archivos de una carpeta en subcarpetas según su tipo y extensión.
+Esta carpeta contiene un conjunto de scripts hechos con Python diseñados para mantener tus carpetas ordenadas,  clasificando y moviendo archivos a subcarpetas según su tipo y extensión.
+
+**Ofrece dos versiones:**
+1. **Versión Interactiva (CLI):** Para una organización manual y bajo demanda, con interacción por consola.
+2.  **Versión Automatizada (Silent):** Diseñada para funcionar en segundo plano con rutas predefinidas y notificaciones al sistema.
+
+## Características
+
+* **Organización Automática:** Clasifica archivos en categorías predefinidas (`imágenes`, `documentos`, `videos`, `audios`, `ejecutables`, `comprimidos`, `programación`, `fuentes`, `otros`).
+* **Gestión de Duplicados:** Mueve archivos repetidos a subcarpetas `DUPLICADOS` dentro de cada categoría.
+* **Modo Interactivo (CLI):** Interfaz amigable con [Rich] para seleccionar carpetas manualmente.
+* **Modo Silencioso (Automatizado):** Funciona en segundo plano con rutas fijas y notificaciones del sistema al finalizar.
+
 
 ---
-## Caracteristicas
-- Clasifica imágenes, videos, audios, documentos, ejecutables, archivos comprimidos, fuentes y archivos de programación.
-- Detecta y gestiona archivos duplicados.
-- Interfaz de terminal hecha con la libreria [Rich](https://github.com/Textualize/rich).
-- Permite elegir la carpeta actual o arrastrar otra carpeta para organizar.
 
----
-## 📦 Instalación
+##  Instalación
 - Descarga el script.
 - Instala las dependencias necesarias con:
 
 ```bash
-pip install rich
+pip install -r requirements.txt
 ```
 ---
-## uso
-1. Ejecuta el script desde terminal o usa el ejecutable(solo para windows).
-2. Se preguntará si se desea organizar la carpeta actual
-    - Si reponde **Y**, se organizara la carpeta donde se ejecuto.
-    - Si responde **N**, pedira que arraste la carpeta y la suelte
-3. Esperar al que el proceso termine
+##  Uso
+
+#### Versión 1: Interactiva (CLI) - `src/organizador.py`
+
+1.  **Ejecutar el script.**
+2.  **Interacción:**
+    * Responde `Y` para organizar la carpeta actual, o `N` para arrastrar y soltar otra carpeta en la terminal.
+3.  **Espera a que el proceso termine.**
+
+#### Versión 2: Automatizada (Silent) - `src/organizer_downloads.py`
+
+1.  **Personalizar:**
+    Edita `src/organizer_downloads.py` para definir las `rutas` absolutas de las carpetas a organizar. Las notificaciones solo funcionan en Windows 10+; si usas otro sistema operativo, deberás quitar el código de notificaciones.
+
+2.  **Ejecutar (para prueba manual):**
+    Puedes ejecutar este script directamente desde la terminal para probarlo. No mostrará nada en consola, pero enviará una notificación al sistema al finalizar (si estás en Windows).
+
+    ```bash
+    python src/organizer_downloads.py
+    ```
+
+
+4.  **Programa con el Programador de Tareas** para una ejecución automática regular.
+
+---
 
 ## 📁 Estructura de carpetas
 
@@ -39,31 +64,22 @@ Al ejecutar el script, se crearán subcarpetas automáticamente según el tipo d
 - `otros`: cualquier archivo que no coincida con las categorías anteriores
 - `DUPLICADOS`: subcarpetas dentro de cada categoría donde se colocan archivos repetidos
 
-## Ejemplo
-![Ejemplo de uso](img.png)
-
 ---
-## Notas
-- Los archivos duplicados se mueven a una subcarpeta llamada `DUPLICADOS` dentro de la categoría correspondiente.
-- Si ejecutas el script dentro de una carpeta que contiene el propio script, este **no se moverá**.
-- Puedes modificar las extensiones soportadas editando el diccionario `tipos_de_archivo` en el script.
+## 🛠️ Posibles Modificaciones y Personalización
 
-## Posibles Modificaciones y Personalización
+Este proyecto es una base sólida. Aquí te sugiero algunas formas en las que podrías modificarlo y mejorarlo aún más:
 
-Este script está diseñado para ser flexible y adaptable a tus necesidades específicas. Aquí te sugiero algunas formas en las que podrías modificarlo y mejorarlo:
+### 1. Gestión Avanzada de Archivos
 
-### 1. Configuración de Rutas Fijas y Automatización
+* **Archivado por antigüedad:** Mueve automáticamente archivos no accedidos/modificados en un periodo definido (ej. 3, 6, 12 meses) a una carpeta de archivo (`Archivados/`) para mantener la carpeta principal más limpia.
 
-* **Eliminar la selección manual:** Actualmente, el script solicita al usuario seleccionar las carpetas de origen y destino. Puedes modificar el código para **definir rutas fijas directamente**, eliminando la necesidad de interacción. Esto es ideal si siempre organizas las mismas carpetas (por ejemplo, "Descargas" y una carpeta de destino predeterminada para archivos organizados) y buscas una automatización completa.
-* **Integración con el Programador de Tareas:** Una vez que las rutas son estáticas, puedes configurar fácilmente el script para que se ejecute de forma automática (por ejemplo, semanalmente, diariamente o al inicio del sistema) utilizando el Programador de Tareas de Windows (o `cron` en sistemas Linux/macOS).
+### 2. Retroalimentación y Registro (Logging) Mejorados
 
-### 2. Gestión Avanzada de Archivos
+* **Registro persistente:** Extiende el sistema de logging para escribir en un archivo de texto (`log.txt`) con el historial detallado de cada ejecución, incluyendo archivos movidos, errores y un resumen final.
+* **Notificaciones enriquecidas:** Las notificaciones del sistema podrían incluir un resumen conciso (ej. "Organización completada: 10 imágenes, 5 documentos movidos") o un botón para abrir el log de la última ejecución.
+* **Reportes periódicos:** Genera reportes semanales/mensuales que resuman la actividad de organización a lo largo del tiempo.
 
-* **Detección de duplicados:** Implementa una lógica para escanear y manejar archivos duplicados. Podrías moverlos a una carpeta de "Duplicados para Revisión" o, con extrema precaución, eliminarlos directamente.
-* **Archivado por antigüedad:** Mueve automáticamente los archivos que no han sido modificados en un período de tiempo específico (ej. 6 meses, 1 año) a una carpeta de archivo (`Archivados/`) para mantener la carpeta principal más limpia.
+### 3. Personalización del Usuario
 
-
-### 3. Retroalimentación y Registro (Logging)
-
-* **Registro de actividad:** Implementa un sistema de registro para crear un archivo (log) que guarde un historial detallado de cada ejecución del script. Este log podría incluir qué archivos se movieron, a qué destino, y si se encontraron errores durante el proceso.
-* **Notificaciones:** Configura el script para enviar notificaciones de escritorio (pop-ups) al finalizar la ejecución, resumiendo la organización realizada o alertando sobre cualquier problema. También podrías explorar opciones para enviar un resumen por correo electrónico.
+* **Archivo de configuración:** Crea un archivo de configuración externo (ej. `config.ini` o `config.json`) para que el usuario defina rutas, categorías de archivo y sus extensiones, y opciones de notificaciones/logs, facilitando la personalización sin modificar el código.
+* **Reglas personalizadas:** Permite al usuario definir reglas más complejas, como mover archivos con palabras clave específicas (ej. "invoice") a carpetas predefinidas ("Facturas") independientemente de su extensión.
