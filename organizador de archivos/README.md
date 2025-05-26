@@ -35,7 +35,7 @@ pip install -r requirements.txt
 #### Versión 2: Automatizada (Silent) - `src/organizer_downloads.py`
 
 1.  **Personalizar:**
-    Edita `src/organizer_downloads.py` para definir las `rutas` absolutas de las carpetas a organizar. Las notificaciones solo funcionan en Windows 10+; si usas otro sistema operativo, deberás quitar el código de notificaciones.
+    Edita el archivo `src/config/rutas.txt` para definir las `rutas` absolutas de las carpetas a organizar. Las notificaciones solo funcionan en Windows 10+; si usas otro sistema operativo, deberás quitar el código de notificaciones.
 
 2.  **Ejecutar (para prueba manual):**
     Puedes ejecutar este script directamente desde la terminal para probarlo. No mostrará nada en consola, pero enviará una notificación al sistema al finalizar (si estás en Windows).

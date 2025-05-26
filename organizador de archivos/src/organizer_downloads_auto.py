@@ -1,9 +1,9 @@
 import os
 import shutil
 import sys
-from win10toast import ToastNotifier#heramienta para las notificaciones
+from win10toast import ToastNotifier
 
-notificar = ToastNotifier()#almacena la funcion para notificaciones
+notificar = ToastNotifier()
 tipos_de_archivo = {
     "imagenes": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg",
     ".tiff", ".jfif", ".heic", ".heif", ".webp", ".ico"],
@@ -20,6 +20,19 @@ tipos_de_archivo = {
     "Otros": []
 }
 
+def obtener_rutas(ruta_actual, archivo='rutas.txt'):
+    """
+    Obtener rutas escritas en el archivo config/rutas.txt
+    """
+    rutas_validas = []
+    archivo_rutas = os.path.join(ruta_actual, 'config', archivo)
+    with open(archivo_rutas, 'r', encoding='utf-8') as rutas:
+        for linea in rutas:
+            ruta = linea.strip()
+            if ruta and os.path.exists(ruta):
+                rutas_validas.append(os.path.abspath(ruta))
+    
+    return rutas_validas
 
 def mover_archivo(origen, destino):
     try:
@@ -58,20 +71,14 @@ def organizar_carpeta(ruta, tipos):
             mover_archivo(archivo_path, destino)
 
 if __name__== "__main__":
-    ruta_icon = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.abspath(os.path.dirname(__file__))
-    ruta_icon = os.path.join(ruta_icon, 'icon.ico')
-    #rutas para organizar
-    rutas = [
-        os.path.expanduser('~/Downloads'),
-        'e:/Descargas',
-    ]
+    ruta_script = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.abspath(os.path.dirname(__file__))
+    ruta_icon = os.path.join(ruta_script, 'icon.ico')
+    rutas = obtener_rutas(ruta_script)
     for rt in rutas:
         organizar_carpeta(rt, tipos_de_archivo)
-    #configuracion de notificacion
     notificar.show_toast(
     "Organizador de archivos",            
     "✅ ¡Archivos de la carpeta descargas organizados!",  
     icon_path= ruta_icon,                    
-    duration=5,                             
-    threaded=True                           
+    duration=10,                         
 )
