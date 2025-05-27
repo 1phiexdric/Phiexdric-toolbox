@@ -6,7 +6,8 @@ Esta es una aplicación en Python que permite generar códigos QR en formato PNG
 
 - Genera códigos QR en dos formatos:
   - **PNG**: Imagen con fondo.
-  - **SVG**: Imagen vectorial sin fondo.
+  - **SVG**: Imagen vectorial.
+    - Puede elegir con fondo o sin fondo.
 - Guarda los códigos QR generados en una carpeta llamada `Qr generados`.
 - Permite personalizar el nombre del archivo generado.
 - Ofrece la opción de abrir el archivo generado automáticamente.

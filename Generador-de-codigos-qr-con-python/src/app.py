@@ -38,9 +38,13 @@ while True:
 if formato == "png":
     img = qrcode.make(texto)
 else:
-    #formato svg
-    #agregamos la funcion
-    img = qrcode.make(texto, image_factory=qrcode.image.svg.SvgPathImage)
+    fondo = input("¿Desea el QR con fondo? (s/n): ").strip().lower()
+    while fondo not in ('s', 'n'):
+        print('Escriba s o n')
+        fondo = input("¿Desea el QR con fondo? (s/n): ").strip().lower()
+    factory = qrcode.image.svg.SvgFillImage if fondo == "s" else qrcode.image.svg.SvgImage
+    img = qrcode.make(texto, image_factory=factory)
+
 
 
 print('Generado qr...')
