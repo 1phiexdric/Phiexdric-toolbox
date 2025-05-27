@@ -43,6 +43,3 @@ El código QR se generará y se guardará en la carpeta `Qr generados`.
 
 Decide si deseas abrir el archivo generado directamente desde la aplicación.
 
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
