@@ -25,7 +25,7 @@ El script abre WhatsApp Web en un navegador automatizado, espera a que escanees 
 1. **Edita el archivo de números:**  
    Abre `src/numeros.txt` y coloca un número de teléfono por línea, en formato internacional (por ejemplo: 584121234567).
 
-2. **Edita el mensaje (opcional):**  
+2. **Edita el mensaje:**  
    Puedes cambiar el mensaje que se enviará editando la variable `mensaje` en `src/main.js`.
 
 3. **Ejecuta el script:**
