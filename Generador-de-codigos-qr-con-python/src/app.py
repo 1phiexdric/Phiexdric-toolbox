@@ -13,6 +13,7 @@ os.makedirs(destine, exist_ok=True)#crea la carpeta si no existe, si existe no h
 print('Generador de codigos qr')
 print('*' * 40)
 
+
 while True:
     texto = input("Ingrese el texto o la url: ").strip()#strip elimina espacios que estén al principio o final del texto
     # evalua la longitud del texto
